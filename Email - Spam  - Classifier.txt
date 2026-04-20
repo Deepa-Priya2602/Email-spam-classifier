@@ -1,0 +1,207 @@
+                                                     Email - Spam  - Classifier
+
+A.) Data Cleaning
+
+1.To get the definition of function do - shift + tab inside the paranthesis 
+
+2.Total missing values in dataset:
+df.isnull().sum().sum()
+
+3.See duplicate rows:
+df[df.duplicated()]
+
+4. Remove Duplicates (very common step)
+df = df.drop_duplicates()
+
+_____________________________________________________________________________________________________________________________________
+
+B.) 📊 Exploratory Data Analysis (EDA) – SMS Spam Detection
+
+EDA is the process of understanding the dataset using statistics and visualization before applying machine learning models.
+
+🔹 Step 1: Check Distribution of Spam and Ham
+
+In this step, we analyze how many messages are spam (1) and ham (0) in the dataset.
+
+This helps us understand whether the dataset is balanced or imbalanced. If one class has significantly more samples than the other, the model may become biased.
+
+A pie chart or bar chart is used to visualize the proportion of spam and ham messages.
+
+👉 Insight:
+Usually, spam messages are fewer compared to ham messages.
+
+🔹 Step 2: Feature Engineering (Create New Features)
+
+Here, we create new numerical features from the text data to better understand message patterns.
+
+We extract:
+
+Number of characters in each message
+Number of words in each message
+Number of sentences in each message
+
+These features help in identifying differences between spam and ham messages.
+
+👉 Insight:
+Spam messages often contain more words, characters, or multiple sentences.
+
+🔹 Step 3: Statistical Analysis of Numerical Features
+
+In this step, we analyze numerical features using statistical methods.
+
+We use functions like:
+
+Mean (average)
+Maximum value
+Minimum value
+Standard deviation
+
+We compare these values for spam and ham messages separately.
+
+👉 Insight:
+This helps in understanding whether spam messages are generally longer or structured differently.
+
+🔹 Step 4: Visualization using Histograms
+
+Histograms are used to visualize the distribution of numerical features like:
+
+Number of characters
+Number of words
+Number of sentences
+
+By plotting separate histograms for spam and ham, we can observe how their distributions differ.
+
+👉 Insight:
+Spam messages may show a different distribution pattern compared to normal messages.
+
+🔹 Step 5: Analysis of Categorical Features
+
+Categorical features (like labels) are analyzed using frequency counts.
+
+This helps in understanding:
+
+How many categories exist
+How frequently each category appears
+
+👉 Insight:
+In SMS spam detection, the main categorical feature is the label (spam/ham).
+
+🔹 Step 6: Outlier Detection
+
+Outliers are unusual data points that differ significantly from others.
+
+We use box plots to detect outliers in numerical features like:
+
+Characters
+Words
+Sentences
+
+👉 Insight:
+Spam messages may sometimes have extremely high values (very long messages), which appear as outliers.
+
+
+📊 Difference: Matplotlib Histogram vs Seaborn Histogram
+
+1. Matplotlib
+It is a basic plotting library
+You manually control everything
+More flexible but requires more code
+
+2. Seaborn
+Built on top of Matplotlib
+More advanced and attractive visuals
+Less code, more automatic styling
+
+____________________________________________________________________________________________________________________________________
+
+C.) Data Processing (Text Preprocessing)
+
+Text preprocessing is used to clean and convert raw text into a meaningful format so that ML models can understand it.
+
+ i) Convert Text to Lowercase
+
+All text is converted to lowercase to ensure uniformity.
+This avoids treating words like “Free” and “free” as different.
+
+ii) Tokenization
+
+Tokenization means splitting text into individual words (tokens).
+
+iii) Remove Special Characters
+
+Special characters like @, #, $, %, ... are removed because they don’t add useful meaning.
+
+iv) Remove Stopwords and Punctuation
+
+Stopwords → common words like is, the, and
+Punctuation → symbols like ., ! ?
+
+These are removed to reduce noise.
+
+v) Stemming
+
+Stemming reduces words to their root form.
+
+
+🔹 Core Rule (Very Simple)
+
+👉 Use () when you want to CALL (execute) a function
+👉 Do NOT use () when you want to PASS a function
+
+Ex: df['transform_text'] = df['text'].apply(transform_text)
+Why NO parentheses here? Because:
+
+.apply() expects a function reference
+It will call the function internally for each row. 
+
+df['text'].apply(transform_text())
+
+This means:
+You are calling transform_text() once And passing its result (not the function)
+
+
+☁️ What is a Word Cloud?
+🔹 Definition
+
+A word cloud is a visualization where:
+
+Words are displayed in different sizes
+The size of each word represents its frequency
+
+👉 More frequent word → bigger size
+👉 Less frequent word → smaller size
+
+
+_______________________________________________________________________________________________________________________________________________________________
+
+D.) Model Building
+
+In this step, we convert text into numerical form and train a model to classify messages as spam or ham.
+
+i) Vectorization using Bag of Words
+
+Machine Learning models cannot understand text directly, so we convert text into numbers using the Bag of Words.
+👉 It counts how many times each word appears in a message.
+
+ii.) 🤖 Step 4: Model Building (Standard Format)
+ - Step 1: Import Required Libraries
+ - Step 2: Load the Dataset
+ - Step 3: Separate Independent and Dependent Features
+ - Step 4: Split Data into Train and Test
+    - Now Import a Model
+    - Create the Model Object
+    - make predictions using test data
+ - Step 5: Compare Prediction With Actual Output
+
+
+
+
+
+
+
+
+
+
+
+
+
